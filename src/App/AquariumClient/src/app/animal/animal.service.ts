@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-export class AnimalServiceService {
+export class AnimalService {
 
   private animalUrl: string;
 
