@@ -22,4 +22,6 @@ export class AnimalService {
   public save(user: Animal) {
     return this.http.post<Animal>(this.animalUrl, user);
   }
+
+
 }

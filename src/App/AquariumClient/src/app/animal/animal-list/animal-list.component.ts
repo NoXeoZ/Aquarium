@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Animal } from '../model/Animal';
-import { Specie } from '../model/Specie';
-import { AnimalService } from '../service/animal.service';
+import { Animal } from '../../model/animal';
+import { Specie } from '../../model/specie';
+import { AnimalService } from '../animal.service';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-animal-list',
@@ -10,10 +12,12 @@ import { AnimalService } from '../service/animal.service';
 })
 export class AnimalListComponent implements OnInit {
 
+  /*
   specie1 : Specie = {
     id: 1,
     name: 'crocodile',
     lifeSpan : 20,
+    animals :
   };
 
   animals: Animal[] = [{
@@ -24,18 +28,20 @@ export class AnimalListComponent implements OnInit {
     arriving: new Date(),
     departure: new Date(),
     marks:'String' // optional
-  }];
+  }];*/
+
+  animals:Animal[];
+
 
 
   constructor(private animalService: AnimalService) {
   }
 
-  ngOnInit(): void {
-  }
+  //ngOnInit(): void { }
 
-  /*ngOnInit() {
+  ngOnInit() {
     this.animalService.findAll().subscribe(data => {
       this.animals = data;
     });
-  }*/
+  }
 }

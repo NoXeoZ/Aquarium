@@ -1,27 +1,27 @@
 package com.upem.Aquarium.Controller;
 
+import com.upem.Aquarium.Model.Animal;
 import com.upem.Aquarium.Model.Specie;
 import com.upem.Aquarium.Repository.AnimalRepository;
-import com.upem.Aquarium.Repository.AnimalsRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class AnimalsController {
-    private AnimalRepository AnimalRepository;
+public class AnimalController {
+    private AnimalRepository animalRepository;
 
-    public AnimalsController(AnimalRepository AnimalRepository){
-        this.AnimalRepository = AnimalRepository;
+    public AnimalController(AnimalRepository animalRepository){
+        this.animalRepository = animalRepository;
     }
 
-    @GetMapping("/Animals")
-    public Iterable<Specie> getAnimals() {
-        return (Iterable<Specie>) AnimalsRepository.findAll();    }
+    @GetMapping("/animals")
+    public Iterable<Animal> getAnimals() {
+        return (Iterable<Animal>) animalRepository.findAll();    }
 
-    @PostMapping("/Animals")
-    public void addSpecie(@RequestBody Specie specie){
-        AnimalsRepository.save(specie);
+    @PostMapping("/animal")
+    public void addAnimal(@RequestBody Animal animal){
+        animalRepository.save(animal);
     }
 }

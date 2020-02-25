@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Specie } from '../model/specie';
 import { Observable } from 'rxjs/Observable';
+import {Animal} from "../model/animal";
 
 @Injectable({
   providedIn: 'root'
@@ -22,4 +23,8 @@ export class SpecieService {
   public save(specie: Specie) {
     return this.http.post<Specie>(this.speciesUrl, specie);
   }
+  /*
+  public findAnimals(id : number): Observable<Animal[]> {
+    return this.http.get<Animal[]>(this.speciesUrl+);
+  }*/
 }

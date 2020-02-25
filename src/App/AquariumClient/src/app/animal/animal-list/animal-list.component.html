@@ -4,8 +4,7 @@
       <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Specie</th>
-        <th scope="col">Name</th>
+        <th scope="col">Specie name</th>
         <th scope="col">Arriving</th>
         <th scope="col">Departure</th>
         <th scope="col">Marks</th>
@@ -14,13 +13,13 @@
       <tbody>
       <tr *ngFor="let animal of animals">
         <td>{{ animal.id }}</td>
-        <td>{{ animal.specie.name }}</td>
-        <td>{{ animal.name}}</td>
-        <td>{{ animal.arriving }}</td>
+        <td>{{ animal.specie?.name}}</td>
+        <td>{{ animal.arriving | date : " HH:mm dd/MM/y" }}</td>
         <td>{{ animal.departure }}</td>
         <td>{{ animal.marks }}</td>
-        <!--<td><a href="mailto:{{ animal.email }}">{{ animal.email }}</a></td>
-     -->
+        <!--
+        <td><a href="mailto:{{ animal.email }}">{{ animal.email }}</a></td>
+        -->
       </tr>
       </tbody>
     </table>
