@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.upem.Aquarium")
 public class AquariumApplication {
 
 	public static void main(String[] args) {
