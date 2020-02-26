@@ -6,6 +6,7 @@
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Life span</th>
+        <th scope="col">Population</th>
       </tr>
       </thead>
       <tbody>
@@ -13,7 +14,7 @@
         <td>{{ specie.id }}</td>
         <td>{{ specie.name }}</td>
         <td>{{ specie.lifeSpan}}</td>
-        <td>{{ specie.animals?.}</td>
+        <td>{{ countAnimals(specie) }}</td>
       </tr>
       </tbody>
     </table>

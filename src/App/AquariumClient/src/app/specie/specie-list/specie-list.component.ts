@@ -28,4 +28,12 @@ export class SpecieListComponent implements OnInit {
    });
   }
 
+  countAnimals(specie:Specie){
+    let i = 0;
+    for(let f of specie.animals){
+      i++;
+    }
+    return i;
+  }
+
 }
