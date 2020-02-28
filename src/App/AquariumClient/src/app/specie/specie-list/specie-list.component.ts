@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Specie} from "../../model/specie";
 import {SpecieService} from "../specie.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-specie-list',
@@ -18,7 +19,8 @@ export class SpecieListComponent implements OnInit {
     lifeSpan : 20,
   };*/
 
-  constructor(private specieService: SpecieService) {
+  constructor(private specieService: SpecieService,
+              private router: Router,) {
   }
 
   ngOnInit() {
@@ -37,6 +39,9 @@ export class SpecieListComponent implements OnInit {
   }
 
   onDeleteSpecie(id: number) {
-    this.specieService.delete(id);
+    this.specieService.delete(id).subscribe(response => {
+      console.log("deleted OK");
+    })
+    this.ngOnInit();
   }
 }
