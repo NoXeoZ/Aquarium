@@ -21,9 +21,8 @@ export class AnimalService {
   }
 
   public save(animal: Animal) {
-    return this.http.post<Animal>(this.animalUrl+"animals", animal);
+    return this.http.post<Animal>(this.animalUrl+"animal", animal);
   }
-
 
   public delete(id:number){
     return this.http.delete<Animal>(this.animalUrl+

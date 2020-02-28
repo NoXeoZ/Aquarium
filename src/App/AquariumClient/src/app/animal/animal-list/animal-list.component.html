@@ -17,11 +17,17 @@
         <td>{{ animal.arriving | date : " HH:mm dd/MM/y" }}</td>
         <td>{{ animal.departure }}</td>
         <td>{{ animal.marks }}</td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="onDeleteAnimal(animal.id)">Delete</button>
+        </td>
         <!--
         <td><a href="mailto:{{ animal.email }}">{{ animal.email }}</a></td>
         -->
       </tr>
       </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+      <button type="button" class="btn btn-success " routerLink="add/">Add an animal</button>
+    </div>
   </div>
 </div>
