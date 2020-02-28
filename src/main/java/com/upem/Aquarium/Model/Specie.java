@@ -34,7 +34,7 @@ public class Specie implements Serializable {
     //@Column(name="name",nullable=false)
     private String name;
 
-    @OneToMany(mappedBy = "specie")
+    @OneToMany(mappedBy = "specie", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("specie")
     private Collection<Animal> animals = null;
 

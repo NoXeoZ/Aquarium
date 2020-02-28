@@ -27,6 +27,8 @@ public class SpecieController {
         specieRepository.save(specie);
     }
 
+    @DeleteMapping("/specie/{id}")
+    public void delete(@PathVariable Long id) { specieRepository.deleteById(id);  }
 
     /*
     @GetMapping("/specie/{id}/animals")
