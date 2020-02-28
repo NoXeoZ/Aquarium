@@ -12,15 +12,8 @@ export class SpecieListComponent implements OnInit {
 
   species : Specie[];
 
-/*
-  specie1 : Specie = {
-    id: 1,
-    name: 'crocodile',
-    lifeSpan : 20,
-  };*/
-
   constructor(private specieService: SpecieService,
-              private router: Router,) {
+              ) {
   }
 
   ngOnInit() {

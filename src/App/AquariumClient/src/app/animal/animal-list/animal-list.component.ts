@@ -12,27 +12,7 @@ import { DatePipe } from '@angular/common';
 })
 export class AnimalListComponent implements OnInit {
 
-  /*
-  specie1 : Specie = {
-    id: 1,
-    name: 'crocodile',
-    lifeSpan : 20,
-    animals :
-  };
-
-  animals: Animal[] = [{
-    id : 1,
-    specie :this.specie1,
-    name :'String',
-    genre:'String',
-    arriving: new Date(),
-    departure: new Date(),
-    marks:'String' // optional
-  }];*/
-
   animals:Animal[];
-
-
 
   constructor(private animalService: AnimalService) {
   }
@@ -42,6 +22,14 @@ export class AnimalListComponent implements OnInit {
   ngOnInit() {
     this.animalService.findAll().subscribe(data => {
       this.animals = data;
+      console.log(data);
     });
+  }
+
+  onDeleteAnimal(id: number) {
+    this.animalService.delete(id).subscribe(response => {
+      console.log("deleted OK");
+    })
+    this.ngOnInit();
   }
 }
