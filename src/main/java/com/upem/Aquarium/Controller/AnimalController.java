@@ -3,10 +3,7 @@ package com.upem.Aquarium.Controller;
 import com.upem.Aquarium.Model.Animal;
 import com.upem.Aquarium.Model.Specie;
 import com.upem.Aquarium.Repository.AnimalRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class AnimalController {
@@ -24,4 +21,7 @@ public class AnimalController {
     public void addAnimal(@RequestBody Animal animal){
         animalRepository.save(animal);
     }
+
+    @DeleteMapping("/animal/{id}")
+    public void delete(@PathVariable Long id) { animalRepository.deleteById(id);  }
 }
