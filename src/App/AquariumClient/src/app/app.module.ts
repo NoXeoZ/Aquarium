@@ -10,6 +10,9 @@ import { AnimalFormComponent } from './animal/animal-form/animal-form.component'
 import { SpecieFormComponent } from './specie/specie-form/specie-form.component';
 import { SpecieListComponent } from './specie/specie-list/specie-list.component';
 import { SpecieService } from "./specie/specie.service";
+import { MenuComponent } from './menu/menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,15 @@ import { SpecieService } from "./specie/specie.service";
     AnimalListComponent,
     AnimalFormComponent,
     SpecieFormComponent,
-    SpecieListComponent
+    SpecieListComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [SpecieService],
   bootstrap: [AppComponent]

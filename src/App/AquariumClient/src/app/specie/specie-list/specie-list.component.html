@@ -1,12 +1,15 @@
-<div class="card my-5">
-  <div class="card-body">
-    <table class="table table-bordered table-striped">
-      <thead class="thead-dark">
+<div class="card my-5 bg-dark">
+  <div class="card-body bg-dark">
+    <table class="table table-dark ">
+      <thead class="thead bg-secondary">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Life span</th>
         <th scope="col">Population</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+
       </tr>
       </thead>
       <tbody>
@@ -15,8 +18,17 @@
         <td>{{ specie.name }}</td>
         <td>{{ specie.lifeSpan}}</td>
         <td>{{ countAnimals(specie) }}</td>
+        <td>
+        <button type="button" class="btn btn-danger" (click)="onDeleteSpecie(specie.id)">Delete</button>
+        </td>
+        <td>
+        <button type="button" class="btn btn-info" routerLink="update/{{specie.id}}">Update</button>
+        </td>
       </tr>
       </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+      <button type="button" class="btn btn-success " routerLink="add/">Add a specie</button>
+    </div>
   </div>
 </div>

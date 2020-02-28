@@ -36,4 +36,7 @@ export class SpecieListComponent implements OnInit {
     return i;
   }
 
+  onDeleteSpecie(id: number) {
+    this.specieService.delete(id);
+  }
 }

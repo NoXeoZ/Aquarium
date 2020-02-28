@@ -13,15 +13,22 @@ export class SpecieService {
   private speciesUrl: string;
 
   constructor(private http: HttpClient) {
-    this.speciesUrl = 'http://localhost:8080/species';
+    this.speciesUrl = 'http://localhost:8080/';
   }
 
   public findAll(): Observable<Specie[]> {
-    return this.http.get<Specie[]>(this.speciesUrl);
+    return this.http.get<Specie[]>(this.speciesUrl+
+    'species',);
   }
 
   public save(specie: Specie) {
-    return this.http.post<Specie>(this.speciesUrl, specie);
+    return this.http.post<Specie>(this.speciesUrl+
+      'specie/', specie);
+  }
+
+  public delete(id:number){
+    return this.http.delete<Specie>(this.speciesUrl+
+    'specie/'+id)
   }
   /*
   public findAnimals(id : number): Observable<Animal[]> {
