@@ -10,7 +10,6 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-//@Table(name="species")
 public class Specie implements Serializable {
     public void setId(long id) {
         this.id = id;
@@ -28,21 +27,32 @@ public class Specie implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    //@Column(name="lifespan",nullable=false)
     private long lifeSpan;
 
-    //@Column(name="name",nullable=false)
     private String name;
 
     @OneToMany(mappedBy = "specie", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("specie")
     private Collection<Animal> animals = null;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("sector")
+    private Pool pool = null;
+
     public Specie(){}
 
     public Specie(long lifeSpan, String name) {
         this.lifeSpan = lifeSpan;
         this.name = name;
+    }
+
+
+    public Pool getPool() {
+        return pool;
+    }
+
+    public void setPool(Pool pool) {
+        this.pool = pool;
     }
 
     public long getId() {

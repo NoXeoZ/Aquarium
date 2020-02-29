@@ -20,8 +20,8 @@ public class Sector implements Serializable {
 
     private String name;
 
-    @OneToMany//(mappedBy = "", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("pool")
+    @OneToMany(mappedBy = "sector", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("sector")
     private Collection<Pool> pools = null;
 
     public Sector(){}
