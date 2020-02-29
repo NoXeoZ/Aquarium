@@ -30,8 +30,4 @@ export class SpecieService {
     return this.http.delete<Specie>(this.speciesUrl+
     'specie/'+id)
   }
-  /*
-  public findAnimals(id : number): Observable<Animal[]> {
-    return this.http.get<Animal[]>(this.speciesUrl+);
-  }*/
 }

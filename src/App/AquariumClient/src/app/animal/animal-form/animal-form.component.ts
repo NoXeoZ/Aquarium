@@ -16,9 +16,6 @@ class Species {
 })
 export class AnimalFormComponent implements OnInit {
 
-
-
-
   animal: Animal;
   species: Specie[];
 

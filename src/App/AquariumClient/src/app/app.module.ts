@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 import { SectorFormComponent } from './sector/sector-form/sector-form.component';
 import { SectorListComponent } from './sector/sector-list/sector-list.component';
 import {SectorService} from "./sector/sector.service";
+import { PoolFormComponent } from './pool/pool-form/pool-form.component';
+import {PoolListComponent} from "./pool/pool-list/pool-list.component";
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import {SectorService} from "./sector/sector.service";
     MenuComponent,
     SectorFormComponent,
     SectorListComponent,
+    PoolFormComponent,
+    PoolListComponent,
   ],
   imports: [
     BrowserModule,
