@@ -1,0 +1,18 @@
+<div class="card my-5 bg-dark">
+  <div class="card-body bg-dark  text-light">
+    <form (ngSubmit)="onSubmit()" #sectorForm="ngForm">
+      <div class="form-group ">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="sector.name"
+               class="form-control"
+               id="name"
+               name="name"
+               placeholder="Crocodile"
+               required #name="ngModel">
+      </div>
+      <button type="submit" [disabled]="!sectorForm.form.valid"
+              class="btn btn-light">Submit</button>
+    </form>
+  </div>
+</div>
+

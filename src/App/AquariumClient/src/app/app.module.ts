@@ -13,6 +13,9 @@ import { SpecieService } from "./specie/specie.service";
 import { MenuComponent } from './menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { SectorFormComponent } from './sector/sector-form/sector-form.component';
+import { SectorListComponent } from './sector/sector-list/sector-list.component';
+import {SectorService} from "./sector/sector.service";
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { FormsModule } from '@angular/forms';
     SpecieFormComponent,
     SpecieListComponent,
     MenuComponent,
+    SectorFormComponent,
+    SectorListComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [SpecieService],
+  providers: [SpecieService,AnimalService,SectorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

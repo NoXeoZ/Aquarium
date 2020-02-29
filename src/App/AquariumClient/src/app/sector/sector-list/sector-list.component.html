@@ -1,0 +1,26 @@
+<div class="card my-5 bg-dark">
+  <div class="card-body bg-dark">
+    <table class="table table-dark ">
+      <thead class="thead bg-secondary">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">localisation</th>
+        <th scope="col">Name</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let sector of sectors">
+        <td>{{ sector.id }}</td>
+        <td>{{ sector.localisation}}</td>
+        <td>{{ sector.name}}</td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="onDeleteSector(sector.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center">
+      <button type="button" class="btn btn-success " routerLink="add/">Add an sector</button>
+    </div>
+  </div>
+</div>
