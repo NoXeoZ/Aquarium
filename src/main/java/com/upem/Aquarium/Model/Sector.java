@@ -23,9 +23,9 @@ public class Sector implements Serializable {
     @JsonIgnoreProperties("workingsectors")
     private Set<Employee> employees = null;
 
-    @OneToMany(mappedBy = "sector", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("sector")
-    private Collection<Pool> pools = null;
+    @OneToMany(mappedBy = "poolsector", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("poolsector")
+    private Collection<Pool> sectorpools = null;
 
     public Sector(){}
     public Sector(String name){
@@ -56,12 +56,12 @@ public class Sector implements Serializable {
         this.name = name;
     }
 
-    public Collection<Pool> getPools() {
-        return pools;
+    public Collection<Pool> getSectorpools() {
+        return sectorpools;
     }
 
-    public void setPools(Collection<Pool> pools) {
-        this.pools = pools;
+    public void setSectorpools(Collection<Pool> pools) {
+        this.sectorpools = pools;
     }
 
     public Set<Employee> getEmployees() {

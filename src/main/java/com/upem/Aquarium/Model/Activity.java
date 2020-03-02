@@ -20,7 +20,7 @@ public class Activity implements Serializable {
     private Set<Employee> workingemployees = null;
 
     @OneToOne(mappedBy="activity")
-    @JsonIgnoreProperties("activity.ts")
+    @JsonIgnoreProperties("activity")
     private Pool poolactivity = null;
 
     @PreRemove

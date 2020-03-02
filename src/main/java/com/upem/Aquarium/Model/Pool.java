@@ -15,8 +15,8 @@ public class Pool implements Serializable {
     private long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("pools")
-    private Sector sector = null;
+    @JsonIgnoreProperties(value = {"poolsector","sectorpools"})
+    private Sector poolsector = null;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnoreProperties("poolschief")
@@ -24,7 +24,7 @@ public class Pool implements Serializable {
 
     @OneToOne
     @JsonIgnoreProperties("poolactivity")
-    private Activity activity;
+    private Activity activity = null;
 
     @OneToMany(mappedBy = "pool")
     @JsonIgnoreProperties("pool")
@@ -73,12 +73,12 @@ public class Pool implements Serializable {
         this.id = id;
     }
 
-    public Sector getSector() {
-        return sector;
+    public Sector getPoolsector() {
+        return poolsector;
     }
 
-    public void setSector(Sector sector) {
-        this.sector = sector;
+    public void setPoolsector(Sector sector) {
+        this.poolsector = sector;
     }
 
     public long getPopulationmax() {
