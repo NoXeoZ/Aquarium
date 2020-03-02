@@ -21,8 +21,8 @@ import {PoolListComponent} from "./pool/pool-list/pool-list.component";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { EmployeeFormComponent } from './employee/employee-form/employee-form.component';
-import { ActivityListComponent } from './Activity/activity-list/activity-list.component';
-import { ActivityFormComponent } from './Activity/activity-form/activity-form.component';
+import { ActivityListComponent } from './activity/activity-list/activity-list.component';
+import { ActivityFormComponent } from './activity/activity-form/activity-form.component';
 
 @NgModule({
   declarations: [

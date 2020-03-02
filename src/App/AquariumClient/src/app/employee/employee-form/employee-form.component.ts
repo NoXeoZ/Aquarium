@@ -5,7 +5,7 @@ import {EmployeeService} from "../../employee/employee.service";
 import {SectorService} from "../../sector/sector.service";
 import {Sector} from "../../model/sector";
 import {PoolService} from "../../pool/pool.service";
-import {ActivityService} from "../../Activity/activity.service";
+import {ActivityService} from "../../activity/activity.service";
 
 @Component({
   selector: 'app-employee-form',
