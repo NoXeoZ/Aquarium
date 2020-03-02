@@ -30,9 +30,5 @@ export class AnimalListComponent implements OnInit {
       console.log("deleted OK");
       this.ngOnInit();
     })
-    /*
-    this.router.navigateByUrl('/animals', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/animals']);
-    });*/
   }
 }

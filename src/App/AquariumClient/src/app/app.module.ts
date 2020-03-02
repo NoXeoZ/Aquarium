@@ -19,6 +19,10 @@ import {SectorService} from "./sector/sector.service";
 import { PoolFormComponent } from './pool/pool-form/pool-form.component';
 import {PoolListComponent} from "./pool/pool-list/pool-list.component";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
+import { EmployeeFormComponent } from './employee/employee-form/employee-form.component';
+import { ActivityListComponent } from './Activity/activity-list/activity-list.component';
+import { ActivityFormComponent } from './Activity/activity-form/activity-form.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,10 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     SectorListComponent,
     PoolFormComponent,
     PoolListComponent,
+    EmployeeListComponent,
+    EmployeeFormComponent,
+    ActivityListComponent,
+    ActivityFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,8 @@ import {SectorListComponent} from "./sector/sector-list/sector-list.component";
 import {SectorFormComponent} from "./sector/sector-form/sector-form.component";
 import {PoolListComponent} from "./pool/pool-list/pool-list.component";
 import {PoolFormComponent} from "./pool/pool-form/pool-form.component";
+import {EmployeeListComponent} from "./employee/employee-list/employee-list.component";
+import {EmployeeFormComponent} from "./employee/employee-form/employee-form.component";
 
 
 const routes: Routes = [
@@ -19,6 +21,8 @@ const routes: Routes = [
   {path: 'sectors/add', component: SectorFormComponent},
   {path: 'pools', component: PoolListComponent},
   {path: 'pools/add', component: PoolFormComponent},
+  {path: 'employees', component: EmployeeListComponent},
+  {path: 'employees/add', component: EmployeeFormComponent},
 
 ];
 

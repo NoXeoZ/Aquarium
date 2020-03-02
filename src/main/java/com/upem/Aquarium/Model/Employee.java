@@ -28,7 +28,7 @@ public class Employee implements Serializable {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JsonIgnoreProperties("activities")
-    private Set<Employee> activities = null;
+    private Set<Activity> activities = null;
 
 
 
@@ -122,11 +122,11 @@ public class Employee implements Serializable {
         this.birthdate = birthdate;
     }
 
-    public Collection<Employee> getActivities() {
+    public Collection<Activity> getActivities() {
         return activities;
     }
 
-    public void setActivities(Set<Employee> activities) {
+    public void setActivities(Set<Activity> activities) {
         this.activities = activities;
     }
 
