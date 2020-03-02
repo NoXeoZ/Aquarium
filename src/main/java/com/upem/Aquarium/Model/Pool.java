@@ -27,7 +27,7 @@ public class Pool implements Serializable {
     private Activity activity = null;
 
     @OneToMany(mappedBy = "pool")
-    @JsonIgnoreProperties("pool")
+    @JsonIgnoreProperties(value = {"pool","species"})
     private Collection<Specie> species = null;
 
     private long populationmax;

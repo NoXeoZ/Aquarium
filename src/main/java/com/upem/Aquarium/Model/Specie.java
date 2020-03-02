@@ -37,7 +37,7 @@ public class Specie implements Serializable {
     private Collection<Animal> animals = null;
 
     @ManyToOne
-    @JsonIgnoreProperties("sector")
+    @JsonIgnoreProperties("species")
     @JoinColumn(nullable = true)
     private Pool pool = null;
 
