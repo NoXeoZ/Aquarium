@@ -26,7 +26,7 @@ export class SectorListComponent implements OnInit {
   onDeleteSector(id: number) {
     this.sectorService.delete(id).subscribe(response => {
       console.log("deleted OK");
+      this.ngOnInit();
     })
-    this.ngOnInit();
   }
 }

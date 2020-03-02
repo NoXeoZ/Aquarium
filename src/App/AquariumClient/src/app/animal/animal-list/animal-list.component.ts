@@ -3,6 +3,7 @@ import { Animal } from '../../model/animal';
 import { Specie } from '../../model/specie';
 import { AnimalService } from '../animal.service';
 import { DatePipe } from '@angular/common';
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
@@ -27,7 +28,11 @@ export class AnimalListComponent implements OnInit {
   onDeleteAnimal(id: number) {
     this.animalService.delete(id).subscribe(response => {
       console.log("deleted OK");
+      this.ngOnInit();
     })
-    this.ngOnInit();
+    /*
+    this.router.navigateByUrl('/animals', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/animals']);
+    });*/
   }
 }

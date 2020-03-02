@@ -28,7 +28,7 @@ export class PoolListComponent implements OnInit {
   onDeletePool(id: number) {
     this.poolService.delete(id).subscribe(response => {
       console.log("deleted OK");
+      this.ngOnInit();
     })
-    this.ngOnInit();
   }
 }

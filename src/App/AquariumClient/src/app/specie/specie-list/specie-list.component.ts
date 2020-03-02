@@ -34,7 +34,7 @@ export class SpecieListComponent implements OnInit {
   onDeleteSpecie(id: number) {
     this.specieService.delete(id).subscribe(response => {
       console.log("deleted OK");
+      this.ngOnInit();
     })
-    this.ngOnInit();
   }
 }
