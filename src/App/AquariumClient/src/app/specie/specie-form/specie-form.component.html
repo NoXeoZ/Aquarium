@@ -1,26 +1,46 @@
-<div class="card my-5 bg-dark">
-  <div class="card-body bg-dark  text-light">
-    <form (ngSubmit)="onSubmit()" #specieForm="ngForm">
-      <div class="form-group ">
-        <label for="name">Name</label>
-        <input type="text" [(ngModel)]="specie.name"
-               class="form-control"
-               id="name"
-               name="name"
-               placeholder="Crocodile"
-               required #name="ngModel">
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mx-auto my-5">
+      <div class="card elegant-color-dark text-light z-depth-2 ">
+        <div class="card-body text-center">
+          <div class="card elegant-color text-light z-depth-2 animated fadeInDown">
+            <div class="card-body text-center">
+              <h3 class="card-title ">Add Specie</h3>
+              <p class="slogan "> Create an animal family !</p>
+              </div>
+          </div>
+          <form  (ngSubmit)="onSubmit()" #specieForm="ngForm">
+            <div class="md-form ">
+              <input id="name" name="name" class="form-control"
+                     [(ngModel)]="specie.name" placeholder="Name"
+                     type="text" required #field="ngModel">
+            </div>
+            <div class="md-form ">
+              <input id="lifeSpan" name="lifeSpan" class="form-control"
+                     [(ngModel)]="specie.lifeSpan" placeholder="Life span"
+                     type="number" required #field="ngModel" >
+            </div>
+            <div class="form-group">
+              <label for="name">Pool</label>
+              <select  [(ngModel)]="specie.pool"
+                      class="form-control"
+                      id="pool"
+                      name="pool"
+                      required #name="ngModel">>
+                <option *ngFor="let pool of pools" [ngValue]="pool">
+                  {{pool.name}}
+                </option>
+              </select>
+            </div>
+            <div class="card-foter text-right">
+              <button type="button" [disabled]="!specieForm.form.valid" (click)="onSubmit()"
+                    class="btn elegant-color border-0 btn-outline-light z-depth-2 animated fadeInUp">Submit</button>
+            </div>
+          </form>
+        </div>
       </div>
-      <div class="form-group ">
-        <label for="name">Life span</label>
-        <input type="text" [(ngModel)]="specie.lifeSpan"
-               class="form-control"
-               id="lifeSpan"
-               name="lifeSpan"
-               placeholder="20"
-               required #name="ngModel">
-      </div>
-      <button type="submit" [disabled]="!specieForm.form.valid"
-              class="btn btn-light">Submit</button>
-    </form>
+    </div>
   </div>
 </div>
+
+

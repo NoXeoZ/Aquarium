@@ -6,9 +6,6 @@ import {SpecieService} from "../../specie/specie.service";
 import {Observable} from "rxjs";
 import {Specie} from "../../model/specie";
 
-class Species {
-}
-
 @Component({
   selector: 'app-animal-form',
   templateUrl: './animal-form.component.html',
@@ -20,10 +17,6 @@ export class AnimalFormComponent implements OnInit {
   species: Specie[];
 
   ngOnInit(): void {
-    this.speciesService.findAll()
-      .subscribe(species => {
-        this.species = species as Specie[]
-      })
   }
 
   constructor(
@@ -32,13 +25,17 @@ export class AnimalFormComponent implements OnInit {
     private animalService: AnimalService,
     private speciesService: SpecieService) {
     this.animal = new Animal();
+    this.speciesService.findAll()
+        .subscribe(species => {
+          this.species = species as Specie[]
+        })
   }
 
   onSubmit() {
-    this.animalService.save(this.animal).subscribe(result => this.gotoAnimalList());
+    this.animalService.save(this.animal).subscribe(result => this.back());
   }
 
-  gotoAnimalList() {
+  back() {
     this.router.navigate(['/animals']).then(r=>console.log("create OK"));
   }
 }

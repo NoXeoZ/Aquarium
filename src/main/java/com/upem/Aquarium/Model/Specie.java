@@ -4,10 +4,11 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
+
 
 @Entity
 public class Specie implements Serializable {
@@ -31,12 +32,13 @@ public class Specie implements Serializable {
 
     private String name;
 
-    @OneToMany(mappedBy = "specie", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "specie",cascade = CascadeType.ALL)
     @JsonIgnoreProperties("specie")
     private Collection<Animal> animals = null;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JsonIgnoreProperties("sector")
+    @JoinColumn(nullable = true)
     private Pool pool = null;
 
     public Specie(){}
@@ -45,7 +47,6 @@ public class Specie implements Serializable {
         this.lifeSpan = lifeSpan;
         this.name = name;
     }
-
 
     public Pool getPool() {
         return pool;

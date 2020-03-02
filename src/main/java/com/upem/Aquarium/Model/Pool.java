@@ -18,7 +18,15 @@ public class Pool implements Serializable {
     @JsonIgnoreProperties("pools")
     private Sector sector = null;
 
-    @OneToMany(mappedBy = "pool", cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("poolschief")
+    private Employee chief = null;
+
+    @OneToOne
+    @JsonIgnoreProperties("poolactivity")
+    private Activity activity;
+
+    @OneToMany(mappedBy = "pool")
     @JsonIgnoreProperties("pool")
     private Collection<Specie> species = null;
 
@@ -27,6 +35,11 @@ public class Pool implements Serializable {
     private boolean clean;
     private String name;
 
+    @PreRemove
+    public void fixForeignKeys() {
+        species.forEach(a -> a.setPool(null));
+    }
+
     public Pool() {
     }
 
@@ -34,12 +47,12 @@ public class Pool implements Serializable {
         this.name=name;
     }
 
-    public Collection<Specie> getSpecies() {
-        return species;
+    public Employee getChief() {
+        return chief;
     }
 
-    public void setSpecies(Collection<Specie> species) {
-        this.species = species;
+    public void setChief(Employee chief) {
+        this.chief = chief;
     }
 
     public String getName() {
@@ -91,4 +104,20 @@ public class Pool implements Serializable {
     public void setClean(boolean clean) {
         this.clean = clean;
     }
+    public Activity getActivity() {
+        return activity;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
+    }
+
+    public Collection<Specie> getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(Collection<Specie> species) {
+        this.species = species;
+    }
+
 }

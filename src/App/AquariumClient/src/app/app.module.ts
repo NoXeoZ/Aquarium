@@ -18,6 +18,7 @@ import { SectorListComponent } from './sector/sector-list/sector-list.component'
 import {SectorService} from "./sector/sector.service";
 import { PoolFormComponent } from './pool/pool-form/pool-form.component';
 import {PoolListComponent} from "./pool/pool-list/pool-list.component";
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {PoolListComponent} from "./pool/pool-list/pool-list.component";
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [SpecieService,AnimalService,SectorService],
   bootstrap: [AppComponent]

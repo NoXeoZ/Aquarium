@@ -18,6 +18,7 @@ public class Animal implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnoreProperties("animals")
+    @JoinColumn(nullable = true)
     private Specie specie = null;
 
     private String name;

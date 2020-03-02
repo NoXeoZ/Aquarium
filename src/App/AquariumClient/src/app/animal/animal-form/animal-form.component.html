@@ -1,69 +1,80 @@
-<div class="card my-5 bg-dark">
+<!--<div class="card my-5 bg-dark">
   <div class="card-body bg-dark  text-light">
     <form (ngSubmit)="onSubmit()" #animalForm="ngForm">
       <div class="form-group ">
         <label for="name">Name</label>
-        <input type="text" [(ngModel)]="animal.name"
-               class="form-control"
-               id="name"
-               name="name"
-               placeholder="Crocodile"
-               required #name="ngModel">
-      </div>
+        <input type="text"
+        <input type="text"
 
-      <div class="form-group ">
-        <label for="name">Genre</label>
-        <input type="text" [(ngModel)]="animal.genre"
-               class="form-control"
-               id="lifeSpan"
-               name="lifeSpan"
-               placeholder="Male|Female"
-               required #name="ngModel">
-      </div>
-
-      <div class="form-group">
-        <label for="name">Specie</label>
-        <select type=Specie [(ngModel)]="animal.specie"
-                class="form-control"
-                id="specie"
-                name="specie"
-                placeholder=""
-                required #name="ngModel">>
-          <option *ngFor="let specie of species" [ngValue]="specie">
-            {{specie.name}}
-          </option>
-        </select>
-      </div>
-      <div class="form-group ">
-        <label for="name">Arriving</label>
         <input type="date" [(ngModel)]="animal.arriving"
-               class="form-control"
-               id="arriving"
-               name="arriving"
-               placeholder="DD-MM-YYYY"
-               required #name="ngModel">
-      </div>
-      <div class="form-group ">
-        <label for="name">Departure</label>
         <input type="date" [(ngModel)]="animal.departure"
-               class="form-control"
-               id="departure"
-               name="departure"
-               placeholder="DD-MM-YYYY"
-               required #name="ngModel">
-      </div>
-      <div class="form-group ">
-        <label for="name">Marks</label>
         <input type="text" [(ngModel)]="animal.marks"
-               class="form-control"
-               id="marks"
-               name="marks"
-               placeholder="Note specifity here"
-               required #name="ngModel">
-      </div>
       <button type="submit" [disabled]="!animalForm.form.valid"
               class="btn btn-light">Submit</button>
     </form>
+  </div>
+</div>
+-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mx-auto my-5">
+      <div class="card elegant-color-dark text-light z-depth-2 ">
+        <div class="card-body text-center">
+          <div class="card elegant-color text-light z-depth-2 animated fadeInDown">
+            <div class="card-body text-center">
+              <h3 class="card-title ">Add Animal</h3>
+              <p class="slogan "> Make him join his new family !</p>
+            </div>
+          </div>
+          <form  (ngSubmit)="onSubmit()" #specieForm="ngForm">
+            <div class="md-form ">
+              <input id="name" name="name" class="form-control"
+                     [(ngModel)]="animal.name" placeholder="Name"
+                     type="text" required #field="ngModel">
+            </div>
+            <div class="md-form">
+              <label>  Specie</label>
+              <select id="specie" name="specie" class="form-control"
+                      [(ngModel)]="animal.specie" placeholder="Species"
+                      type="text" required #field="ngModel" >
+                <option *ngFor="let specie of species" [ngValue]="specie">
+                  {{specie.name}}
+                </option>
+              </select>
+            </div>
+            <div class="md-form text-center">
+              <label >  Genre</label>
+              <select id="genre" name="genre" class="form-control"
+                     [(ngModel)]="animal.genre" placeholder="Genre"
+                     type="text" required #field="ngModel" >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="md-form ">
+              <label>  Arriving</label>
+              <input id="arriving" name="arriving" class="form-control"
+                     [(ngModel)]="animal.arriving" type="Date" required #field="ngModel" >
+            </div>
+            <div class="md-form ">
+              <label>  Departure</label>
+              <input id="departure" name="departure" class="form-control" placeholder=""
+                     [(ngModel)]="animal.departure" type="Date" required #field="ngModel" >
+            </div>
+            <div class="md-form ">
+              <input id="marks" name="marks" class="form-control"
+                     [(ngModel)]="animal.marks" placeholder="Marks"
+                     type="text" required #field="ngModel" >
+            </div>
+            <div class="card-foter text-right">
+              <button type="button" [disabled]="!specieForm.form.valid" (click)="onSubmit()"
+                      class="btn elegant-color border-0 btn-outline-light z-depth-2 animated fadeInUp">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

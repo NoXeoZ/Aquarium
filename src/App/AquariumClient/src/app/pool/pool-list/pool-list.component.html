@@ -1,4 +1,4 @@
-<div class="card my-5 bg-dark">
+<!--<div class="card my-5 bg-dark">
   <div class="card-body bg-dark">
     <table class="table table-dark ">
       <thead class="thead bg-secondary">
@@ -31,3 +31,60 @@
     </div>
   </div>
 </div>
+-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-auto mx-auto my-5">
+      <div class="card elegant-color-dark text-light z-depth-2 animated fadeInLeft">
+        <div class="card-body text-center">
+          <div class="card elegant-color text-light z-depth-2 animated fadeInDown">
+            <div class="card-body text-center">
+              <h3 class="card-title ">Pools</h3>
+            </div>
+          </div>
+          <table class="table table-dark my-3 ">
+            <thead class="thead bg-transparent border-0">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Sector</th>
+              <th scope="col">Name</th>
+              <th scope="col">Volume</th>
+              <th scope="col">Animal Capacity</th>
+              <th scope="col">Clean</th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pool of pools">
+              <td>{{ pool.id }}</td>
+              <td>{{ pool.sector?.name}}</td>
+              <td>{{ pool.name}}</td>
+              <td>{{ pool.volume }}</td>
+              <td>{{ pool.populationmax }}</td>
+              <td>{{ pool.clean }}</td>
+              <td>
+                <button type="button" class="btn btn-danger z-depth-2 animated fadeInRight" (click)="onDeletePool(pool.id)">Delete</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-success z-depth-2 animated fadeInUp" routerLink="add/">Add an Pool</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

@@ -15,7 +15,6 @@ export class SectorListComponent implements OnInit {
   constructor(private sectorService: SectorService) {
   }
 
-  //ngOnInit(): void { }
 
   ngOnInit() {
     this.sectorService.findAll().subscribe(data => {

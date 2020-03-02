@@ -1,12 +1,10 @@
 package com.upem.Aquarium.Model;
-
-
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 public class Sector implements Serializable {
@@ -18,7 +16,12 @@ public class Sector implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long localisation;
 
+
     private String name;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("workingsectors")
+    private Set<Employee> employees = null;
 
     @OneToMany(mappedBy = "sector", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("sector")
@@ -59,6 +62,14 @@ public class Sector implements Serializable {
 
     public void setPools(Collection<Pool> pools) {
         this.pools = pools;
+    }
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 }
 

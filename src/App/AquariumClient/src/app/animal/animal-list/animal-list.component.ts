@@ -17,8 +17,6 @@ export class AnimalListComponent implements OnInit {
   constructor(private animalService: AnimalService) {
   }
 
-  //ngOnInit(): void { }
-
   ngOnInit() {
     this.animalService.findAll().subscribe(data => {
       this.animals = data;

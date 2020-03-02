@@ -6,7 +6,9 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Set;
 
 
 @Entity
@@ -16,9 +18,25 @@ public class Employee implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy="employees",fetch = FetchType.EAGER)
     @JsonIgnoreProperties("employees")
-    private Sector sector = null;
+    private Set<Sector> workingsectors = null;
+
+    @OneToMany(mappedBy = "chief")
+    @JsonIgnoreProperties("chief")
+    private Collection<Pool> poolschief = null;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("activities")
+    private Set<Employee> activities = null;
+
+
+
+    @PreRemove
+    public void fixForeignKeys() {
+        poolschief.forEach(a -> a.setChief(null));
+        workingsectors.forEach( ws->ws.setEmployees(null));
+    }
 
     private String firstname;
     private String lastname;
@@ -26,8 +44,8 @@ public class Employee implements Serializable {
     private long socialsecuritynumber;
     private Date birthdate;
 
-    public Employee(Sector sector, String firstname, String lastname, String address, long socialsecuritynumber, Date birthdate) {
-        this.sector = sector;
+    public Employee(Set<Sector> workingsectors, String firstname, String lastname, String address, long socialsecuritynumber, Date birthdate) {
+        this.workingsectors = workingsectors;
         this.firstname = firstname;
         this.lastname = lastname;
         this.address = address;
@@ -48,12 +66,20 @@ public class Employee implements Serializable {
         return id;
     }
 
-    public Sector getSector() {
-        return sector;
+    public Collection<Pool> getPoolschief() {
+        return poolschief;
     }
 
-    public void setSector(Sector sector) {
-        this.sector = sector;
+    public void setPoolschief(Collection<Pool> poolschief) {
+        this.poolschief = poolschief;
+    }
+
+    public Collection<Sector> getWorkingsectors() {
+        return workingsectors;
+    }
+
+    public void setWorkingsectors(Set<Sector> workingsectors) {
+        this.workingsectors = workingsectors;
     }
 
     public String getFirstname() {
@@ -96,6 +122,13 @@ public class Employee implements Serializable {
         this.birthdate = birthdate;
     }
 
+    public Collection<Employee> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(Set<Employee> activities) {
+        this.activities = activities;
+    }
 
 
 }
