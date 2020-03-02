@@ -24,7 +24,7 @@ public class Sector implements Serializable {
     private Set<Employee> employees = null;
 
     @OneToMany(mappedBy = "poolsector", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("poolsector")
+    @JsonIgnoreProperties(value={"poolsector","sectorpools"})
     private Collection<Pool> sectorpools = null;
 
     public Sector(){}

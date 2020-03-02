@@ -1,0 +1,69 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mx-auto my-5">
+      <div class="card elegant-color-dark text-light z-depth-2 ">
+        <div class="card-body text-center">
+          <div class="card elegant-color text-light z-depth-2 animated fadeInDown">
+            <div class="card-body text-center">
+              <h3 class="card-title ">Add Employee</h3>
+              <p class="slogan "> Make him join his new family !</p>
+            </div>
+          </div>
+          <form  (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+            <div class="md-form ">
+              <input id="firstname" name="firstname" class="form-control"
+                     [(ngModel)]="employee.firstname" placeholder="First Name"
+                     type="text" required #field="ngModel">
+            </div>
+            <div class="md-form ">
+              <input id="lastname" name="lastname" class="form-control"
+                     [(ngModel)]="employee.firstname" placeholder="Last Name"
+                     type="text" required #field="ngModel">
+            </div>
+            <div class="md-form ">
+            <input id="address" name="address" class="form-control"
+                   [(ngModel)]="employee.address" placeholder="Address"
+                   type="text" required #field="ngModel">
+          </div>
+            <div class="md-form ">
+              <input id="socialsecuritynumber" name="socialsecuritynumber" class="form-control"
+                     [(ngModel)]="employee.socialsecuritynumber" placeholder="Social Security Number"
+                     type="number" required #field="ngModel">
+            </div>
+            <div class="md-form ">
+              <label>  Birth date</label>
+              <input id="birthdate" name="birthdate" class="form-control"
+                     [(ngModel)]="employee.birthdate" type="Date" required #field="ngModel" >
+            </div>
+            <div class="md-form">
+              <label>  Chief of pools</label>
+              <select id="poolschief" name="poolschief" class="form-control"
+                      [(ngModel)]="employee.poolschief" placeholder="poolschief"
+                      type="text" required #field="ngModel" multiple>
+                <option *ngFor="let pool of pools" [ngValue]="pool">
+                  {{pool.name}}
+                </option>
+              </select>
+            </div>
+            <div class="md-form">
+              <label>  Work in sectors</label>
+              <select id="workingsectors" name="workingsectors" class="form-control"
+                      [(ngModel)]="employee.workingsectors" placeholder="workingsectors"
+                      type="text" required #field="ngModel" >
+                <option *ngFor="let sector of sectors" [ngValue]="sector">
+                  {{sector.name}}
+                </option>
+              </select>
+            </div>
+            <div class="card-foter text-right">
+              <button type="button" [disabled]="!employeeForm.form.valid" (click)="onSubmit()"
+                      class="btn elegant-color border-0 btn-outline-light z-depth-2 animated fadeInUp">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

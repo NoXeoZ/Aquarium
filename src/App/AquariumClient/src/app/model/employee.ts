@@ -6,7 +6,7 @@ export class Employee {
   firstname :String;
   lastname:String;
   address:String;
-  socialsecurtiynumber : number;
+  socialsecuritynumber : number;
   birthdate:Date;
   workingsectors:Iterable<Sector>;
   poolschief:Iterable<Sector>;

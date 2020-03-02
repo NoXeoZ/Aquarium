@@ -12,6 +12,7 @@ public class Pool implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonIgnoreProperties("poolschief")
     private long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -19,7 +20,7 @@ public class Pool implements Serializable {
     private Sector poolsector = null;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("poolschief")
+    @JsonIgnoreProperties(value={"poolschief","chief"},allowSetters = true)
     private Employee chief = null;
 
     @OneToOne

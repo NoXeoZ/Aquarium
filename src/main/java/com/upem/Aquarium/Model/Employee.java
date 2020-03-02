@@ -19,11 +19,11 @@ public class Employee implements Serializable {
     private long id;
 
     @ManyToMany(mappedBy="employees",fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("employees")
+    @JsonIgnoreProperties(value={"employees","workingsector"})
     private Set<Sector> workingsectors = null;
 
     @OneToMany(mappedBy = "chief")
-    @JsonIgnoreProperties("chief")
+    @JsonIgnoreProperties(value={"chief","poolschief"})
     private Collection<Pool> poolschief = null;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -70,7 +70,7 @@ public class Employee implements Serializable {
         return poolschief;
     }
 
-    public void setPoolschief(Collection<Pool> poolschief) {
+    public void setPoolschief(Set<Pool> poolschief) {
         this.poolschief = poolschief;
     }
 
